@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Global resets & base ────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply font-inter text-body-text bg-white antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sora text-navy;
+  }
+
+  h1 {
+    @apply text-[32px] md:text-[40px] lg:text-[56px] font-bold leading-[1.1] tracking-tight;
+  }
+
+  h2 {
+    @apply text-[26px] md:text-[30px] lg:text-[40px] font-bold leading-[1.2];
+  }
+
+  h3 {
+    @apply text-[21px] font-semibold leading-[1.35];
+  }
+
+  p {
+    @apply text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed text-muted;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #F5F7FA; }
+  ::-webkit-scrollbar-thumb { background: #3E5C76; border-radius: 3px; }
+}
+
+/* ── Reusable layer utilities ─────────────────────────────────────────── */
+@layer components {
+
+  /* Section container */
+  .section-container {
+    @apply w-full max-w-content mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section vertical padding */
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-28;
+  }
+
+  /* Eyebrow label */
+  .eyebrow {
+    @apply text-accent uppercase tracking-[0.06em] text-[13px] font-semibold;
+  }
+
+  /* Reading column */
+  .reading-col {
+    @apply max-w-reading mx-auto;
+  }
+
+  /* Divider accent line */
+  .accent-line {
+    @apply w-12 h-[3px] bg-accent rounded-full mt-3 mb-0;
+  }
+
+  /* Card base */
+  .card {
+    @apply bg-white rounded-card border border-border shadow-card p-8
+           transition-all duration-300 ease-out
+           hover:shadow-card-hover hover:-translate-y-1 hover:border-slate-brand;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-accent text-white font-semibold
+           px-6 py-3 rounded-btn text-[15px]
+           transition-all duration-200
+           hover:bg-accent-dark active:scale-95
+           focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-transparent text-navy font-semibold
+           px-6 py-3 rounded-btn text-[15px] border-[1.5px] border-navy
+           transition-all duration-200
+           hover:bg-navy hover:text-white active:scale-95
+           focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2;
+  }
+
+  /* Text link with arrow */
+  .text-link {
+    @apply inline-flex items-center gap-1 text-navy font-medium text-[15px]
+           transition-all duration-200;
+  }
+
+
+  .text-link:hover {
+    @apply text-accent;
+  }
+
+  .text-link .arrow {
+    @apply transition-transform duration-200;
+  }
+
+  .text-link:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  /* Tag / pill */
+  .tag {
+    @apply inline-block bg-alt-bg text-slate-brand text-[13px] font-semibold
+           px-3 py-1 rounded-full border border-border;
+  }
+
+  /* Checklist item */
+  .check-item {
+    @apply flex items-start gap-3 text-[16px] text-body-text;
+  }
+
+  .check-item .check-icon {
+    @apply flex-shrink-0 w-5 h-5 text-accent mt-0.5;
+  }
+}
