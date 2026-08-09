@@ -1,33 +1,32 @@
 import React from 'react'
 import SectionHeader from '../ui/SectionHeader'
 
-// Using SVG icons for tech logos (consistent single-color → full-color on hover)
 const TECH_CATEGORIES = [
   {
     label: 'Frontend',
     techs: [
-      { name: 'React', abbr: 'Re', color: '#61DAFB', bg: '#20232a' },
-      { name: 'HTML5', abbr: 'H5', color: '#E34F26', bg: '#fff' },
-      { name: 'CSS3', abbr: 'C3', color: '#1572B6', bg: '#fff' },
-      { name: 'JavaScript', abbr: 'JS', color: '#F7DF1E', bg: '#323330' },
+      { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+      { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
+      { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
+      { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
     ],
   },
   {
     label: 'Backend',
     techs: [
-      { name: 'Node.js', abbr: 'No', color: '#339933', bg: '#fff' },
+      { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
     ],
   },
   {
     label: 'Database',
     techs: [
-      { name: 'MongoDB', abbr: 'Mg', color: '#47A248', bg: '#fff' },
-      { name: 'MySQL', abbr: 'My', color: '#4479A1', bg: '#fff' },
+      { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
+      { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
     ],
   },
 ]
 
-function TechBadge({ name, abbr, color, bg }) {
+function TechBadge({ name, icon }) {
   return (
     <div
       className="group flex flex-col items-center gap-2 cursor-default"
@@ -37,15 +36,13 @@ function TechBadge({ name, abbr, color, bg }) {
       <div
         className="w-14 h-14 rounded-xl border border-border flex items-center justify-center
                     bg-white shadow-card transition-all duration-300
-                    group-hover:shadow-card-hover group-hover:border-slate-brand"
-        style={{ '--tech-color': color, '--tech-bg': bg }}
+                    group-hover:shadow-card-hover group-hover:border-slate-brand p-2.5"
       >
-        <span
-          className="font-sora font-bold text-[15px] transition-colors duration-300"
-          style={{ color: 'var(--tech-color)' }}
-        >
-          {abbr}
-        </span>
+        <img 
+          src={icon} 
+          alt={`${name} logo`} 
+          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110" 
+        />
       </div>
       <span className="text-[12px] text-muted font-medium group-hover:text-navy transition-colors">{name}</span>
     </div>
